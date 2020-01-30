@@ -4,7 +4,7 @@ using UnityEngine;
 using Valve.VR;
 
 
-public class NewBehaviourScript : MonoBehaviour
+public class LaserPoint : MonoBehaviour
 {
 
   public SteamVR_Input_Sources handType;
@@ -15,6 +15,20 @@ public class NewBehaviourScript : MonoBehaviour
   private GameObject laser; // 2
   private Transform laserTransform; // 3
   private Vector3 hitPoint; // 4
+
+    private void ShowLaser(RaycastHit hit)
+    {
+        // 1
+        laser.SetActive(true);
+        // 2
+        laserTransform.position = Vector3.Lerp(controllerPose.transform.position, hitPoint, .5f);
+        // 3
+        laserTransform.LookAt(hitPoint);
+        // 4
+        laserTransform.localScale = new Vector3(laserTransform.localScale.x,
+                                                laserTransform.localScale.y,
+                                                hit.distance);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +49,7 @@ public class NewBehaviourScript : MonoBehaviour
         RaycastHit hit;
 
         // 2
-        if (Physics.Raycast(controllerPose.transform.position, transform.forward, out hit, 100))
+        if (Physics.Raycast(controllerPose.transform.position, transform.forward, out hit))
         {
             hitPoint = hit.point;
             ShowLaser(hit);
@@ -48,18 +62,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
 
-    private void ShowLaser(RaycastHit hit)
-  {
-      // 1
-      laser.SetActive(true);
-      // 2
-      laserTransform.position = Vector3.Lerp(controllerPose.transform.position, hitPoint, .5f);
-      // 3
-      laserTransform.LookAt(hitPoint);
-      // 4
-      laserTransform.localScale = new Vector3(laserTransform.localScale.x,
-                                              laserTransform.localScale.y,
-                                              hit.distance);
-  }
+    
 
 }
