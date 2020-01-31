@@ -1,52 +1,52 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-//public class ray_tracing : MonoBehaviour
-//{
-//    // Texte à afficher en dessous de la planète
-//    public Text nameText;
+public class ray_tracing : MonoBehaviour
+{
+   // Texte à afficher en dessous de la planète
+   public Text nameText;
 
-//    // Le tuyau visé par la souris
-//    protected GameObject selected;
+   // Le tuyau visé par la souris
+   protected GameObject selected;
 
-//    void Start()
-//    {
+   void Start()
+   {
 
-//    }
+   }
 
-//    // Update is called once per frame
-//    void Update()
-//    {
-//      // Génère un rayon sous la souris
-//      Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//      RaycastHit hit;
+   // Update is called once per frame
+   void Update()
+   {
+     // Génère un rayon sous la souris
+     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+     RaycastHit hit;
 
-//      if (Physics.Raycast(ray, out hit))
-//      {
-//        // On stocke le GameObject visé par la souris
-//        selected = hit.transform.gameObject;
-//        Debug.Log(selected.name);
+     if (Physics.Raycast(ray, out hit))
+     {
+       // On stocke le GameObject visé par la souris
+       selected = hit.transform.gameObject;
+       Debug.Log(selected.name);
 
-//        // On affiche le nom de la planette
-//        nameText.text = selected.name;
+       // On affiche le nom de la planette
+       nameText.text = selected.name;
 
-//        // On fait clignoter
-//        Highlighter hl = selected.GetComponent<Highlighter>();
-//        if (hl != null) {
-//          hl.highlight = true;
-//        }
+       // On fait clignoter
+       // Highlighter hl = selected.GetComponent<Highlighter>();
+       // if (hl != null) {
+       //   hl.highlight = true;
+       // }
 
-//      }
-//      else {
+     }
+     else {
 
-//        // On arrête d'afficher du texte
-//        nameText.text = "";
-//        Highlighter hl = selected.GetComponent<Highlighter>();
-//        if (hl != null) {
-//          hl.highlight = false;
-//        }
-//      }
-//    }
-//}
+       // On arrête d'afficher du texte
+       nameText.text = "";
+       // Highlighter hl = selected.GetComponent<Highlighter>();
+       // if (hl != null) {
+       //   hl.highlight = false;
+       // }
+     }
+   }
+}
