@@ -37,6 +37,7 @@ public class ray_tracing : MonoBehaviour
        // if (hl != null) {
        //   hl.highlight = true;
        // }
+       selected.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", 0.2f);
 
      }
      else {
@@ -47,6 +48,7 @@ public class ray_tracing : MonoBehaviour
        // if (hl != null) {
        //   hl.highlight = false;
        // }
+       selected.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", 0.0f);
      }
    }
 }

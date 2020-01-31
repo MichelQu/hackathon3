@@ -11,7 +11,7 @@ Shader "Outlined/UltimateOutline"
 		_FirstOutlineWidth("Outlines width", Range(0.0, 2.0)) = 0.15
 
 		_SecondOutlineColor("Outline color", Color) = (0,0,1,1)
-		_SecondOutlineWidth("Outlines width", Range(0.0, 2.0)) = 0.025
+		_SecondOutlineWidth("Outlines width", Range(0.0, 2.0)) = 0.0
 
 		_Angle("Switch shader on angle", Range(0.0, 180.0)) = 89
 	}
