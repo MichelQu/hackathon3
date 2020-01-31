@@ -28,9 +28,17 @@ public class Pause : MonoBehaviour
     {
         if (isPaused)
         {
-            if(GUI.Button(new Rect(Screen.width/2 - 40, Screen.height/2 -20, 80, 40), "Continuer"))
+            if(GUI.Button(new Rect(Screen.width - 100, 20, 80, 40), "Continuer"))
             {
                 isPaused = false;
+            }
+        }
+
+        if (!isPaused)
+        {
+            if (GUI.Button(new Rect(Screen.width - 100,  20, 80, 40), "Pause"))
+            {
+                isPaused = true;
             }
         }
     }
